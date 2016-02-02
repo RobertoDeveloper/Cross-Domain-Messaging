@@ -2,7 +2,7 @@
     w.onload = function() {
          
          function  getMessage(e) {
-             //you can also validate the origin below -> e.origin === 'yourOrigin'
+             //make sure you validate the incoming origin
              if(!e.data || e.origin !== 'http://yourUrl') return;
              
              //set any data you want to send back to sender

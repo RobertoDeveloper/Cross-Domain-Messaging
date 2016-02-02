@@ -3,7 +3,7 @@
          
          function  getMessage(e) {
              //you can also validate the origin below -> e.origin === 'yourOrigin'
-             if(!e.data) return;
+             if(!e.data || e.origin !== 'http://yourUrl') return;
              
              //set any data you want to send back to sender
              var dataToSend = document.cookie;
@@ -12,5 +12,5 @@
              e.source.postMessage(dataToSend, e.origin);
          }
         (w.addEventListener) ? w.addEventListener('message', getMessage) : w.attachEvent('message', getMessage); 
-    }
+    } 
 })(window);
